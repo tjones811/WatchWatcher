@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p class = "text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <div class="container">
+        <nav class="navbar navbar-dark bg-primary">
+            <h1>WATCH KEEPER "Keep watch of what you watch"</h1>
+        </nav>
+
+        <h1  class="d-flex justify-content-center">Edit {{show.title}}</h1>
+    
+        <form action="/show/update" method="post">
+            
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text"  class="form-control" name="title" value="{{show.title}}">
+            </div>
+
+            <div class="form-group">
+                <label for="network">Network:</label>
+                <input type="text"  class="form-control" name="network" value = "{{show.network}}">
+            </div>
+
+            <div class="form-group">
+                <label for="release_date">Release Date:</label>
+                <input type="date"  class="form-control" name="release_date" value = "{{show.release_date}}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+            <input type="text"  class="form-control" name="description" value = "{{show.description}}">
+            </div>
+        
+                <input type="hidden" name="show_id" value={{show.id}}>
+        
+                <input type="submit"  class="btn btn-success mb-3" value="Update">
+            
+        </form>
+    
+    
+        <a href="/dashboard" class="btn btn-warning">TV Shows</a>
+        <a href="/logout" class="btn btn-info">Logout</a>
+
+
+    </div>
+
+
+</body>
+</html>

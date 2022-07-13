@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-dark bg-primary">
+            <h1>WATCH KEEPER "Keep watch of what you watch"</h1>
+        </nav>
+    </div>
+
+
+
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>{{show.title}}</h1>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Network: {{show.network}}</h5>
+          <h5 class="card-title">Release Date: {{show.release_date}}</h5>
+          <p class="card-text">Description"{{show.description}}"</p>
+         
+        </div>
+        <div class="card-footer text-muted">
+            <h1>Posted By: {{show.user.first_name}}</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+         
+        <a href="/dashboard" class="btn btn-warning mr-3">TV Shows</a>
+        <a href="/logout" class="btn btn-info">Logout</a>
+
+      </div>
+</body>
+</html>

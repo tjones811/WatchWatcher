@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-dark bg-primary">
+            <h1>WATCH KEEPER "Keep watch of what you watch"</h1>
+        </nav>
+
+        <h1>Hello User {{user.first_name}} !!!</h1>
+    
+        <h1 class="d-flex justify-content-center" >All TV Shows</h1>
+    
+       
+
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Network</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for show in shows%}
+                <tr>
+                    <th scope="row">{{ show.title }} </th>
+                    <td>{{show.network}}</td>
+                    <td>{{show.release_date}}</td>
+                    <td><a href="/show/show/{{show.id}}" class="btn btn-warning">Show</a></td>
+                    <td><a href="/show/edit/{{show.id}}" class="btn btn-info">Edit</a></td>
+                    <td><a href="/show/delete/{{show.id}}"  class="btn btn-danger">Delete</a></td>
+                </tr>    
+            
+            
+            {%endfor%}
+             
+            </tbody>
+          </table>
+    
+    
+        <a href="/show/new" class="btn btn-success">Add New Show</a>
+    
+    
+    
+        <a href="/logout" class="btn btn-secondary">Logout</a>
+    </div>
+</body>
+</html>
